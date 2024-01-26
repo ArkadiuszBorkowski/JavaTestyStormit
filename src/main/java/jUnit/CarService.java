@@ -1,5 +1,7 @@
 package jUnit;
 
+import java.util.List;
+
 public class CarService {
     public boolean analyzeCarByParams(Integer treadThickness, Integer fuelUsage, Integer carMillage) {
 
@@ -35,6 +37,16 @@ public class CarService {
             return true;
         }
 
-        return true;
+        return false;
+    }
+
+    private void myAssetion(List<String> strings) {
+        boolean isAnyEmpty = strings.stream().anyMatch(String::isEmpty);
+
+        if (isAnyEmpty) {
+            Assertions.fail("Collection contains empty string!");
+        }
+
+        Assertions.assertTrue(true);
     }
 }

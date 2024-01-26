@@ -3,6 +3,8 @@ package jUnit;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class CarServiceTest {
@@ -47,7 +49,7 @@ class CarServiceTest {
         //given
         Integer treadThickness = 3;
         Integer fuelUsage = 5;
-        Integer carMillage = 299000;
+        Integer carMillage = 29000;
         CarService carService = new CarService();
 
         //when
@@ -75,8 +77,15 @@ class CarServiceTest {
 
     }
 
+    private void myAssetion(List<String> strings) {
+        boolean isAnyEmpty = strings.stream().anyMatch(String::isEmpty);
 
+        if (isAnyEmpty) {
+            Assertions.fail("Collection contains empty string!");
+        }
 
+        Assertions.assertTrue(true);
+    }
 
 
 }
