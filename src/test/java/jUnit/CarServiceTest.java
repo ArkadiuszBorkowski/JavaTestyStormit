@@ -3,6 +3,7 @@ package jUnit;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -77,7 +78,7 @@ class CarServiceTest {
 
     }
 
-    private void myAssetion(List<String> strings) {
+    private void myAssertion(List<String> strings) {
         boolean isAnyEmpty = strings.stream().anyMatch(String::isEmpty);
 
         if (isAnyEmpty) {
@@ -85,6 +86,12 @@ class CarServiceTest {
         }
 
         Assertions.assertTrue(true);
+    }
+
+    @Test
+    public void testMyAssertion() {
+        List<String> strings = Arrays.asList("1", "2");
+        myAssertion(strings);
     }
 
 

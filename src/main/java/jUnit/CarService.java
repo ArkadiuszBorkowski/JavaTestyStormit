@@ -40,13 +40,5 @@ public class CarService {
         return false;
     }
 
-    private void myAssetion(List<String> strings) {
-        boolean isAnyEmpty = strings.stream().anyMatch(String::isEmpty);
 
-        if (isAnyEmpty) {
-            Assertions.fail("Collection contains empty string!");
-        }
-
-        Assertions.assertTrue(true);
-    }
 }
