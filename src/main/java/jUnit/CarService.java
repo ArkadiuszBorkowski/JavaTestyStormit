@@ -1,8 +1,26 @@
 package jUnit;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CarService {
+
+    public List<CarDiagnosticResult> analyzeCars(List<CarDetails> carsDetails) {
+        List<CarDiagnosticResult> results = new ArrayList<>();
+        carsDetails.forEach(details -> {
+            boolean analyzeResult = analyzeSingle(details);
+            results.add(new CarDiagnosticResult(details.getId(), analyzeResult));
+        });
+        return results;
+    }
+
+    private boolean analyzeSingle(CarDetails carDetails) {
+        int treadThickness = carDetails.getTreadThickness();
+        int fuelUsage = carDetails.getFuelUsage();
+        int carMillage = carDetails.getCarMillage();
+        return analyzeCarByParams(treadThickness, fuelUsage, carMillage);
+    }
+
     public boolean analyzeCarByParams(Integer treadThickness, Integer fuelUsage, Integer carMillage) {
 
 
